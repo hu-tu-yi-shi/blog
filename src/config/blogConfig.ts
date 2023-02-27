@@ -27,8 +27,8 @@ export const blogConfig = {
     },
   },
   giscus: {
-    repo: "kfirfitousi/blog",
-    repoId: "R_kgDOIcM7JA",
+    repo: "kfirfitousi/blog111",
+    repoId: "R_kgDOIcM7J11111A",
     category: "Comments",
     categoryId: "DIC_kwDOIcM7JM4CTdK0",
     mapping: "title",
