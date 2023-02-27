@@ -1,13 +1,25 @@
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from './page.module.css'
+import { allPosts } from 'contentlayer/generated';
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+
+  const latestPosts = allPosts
+      // .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
+      .slice(0, 3);
+
   return (
     <main className={styles.main}>
       <div className={styles.description}>
+
+        {latestPosts.map((post) => (
+          <div key={post._id}>  {post.title} </div>
+        ))}
+
+
         <p>
           Get started by editing&nbsp;
           <code className={styles.code}>src/app/page.tsx</code>
