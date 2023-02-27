@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "./page.module.css";
-
+import Link from "next/link";
 import { allPosts } from "contentlayer/generated";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -16,7 +16,9 @@ export default function Home() {
       <h1>糊涂的博客</h1>
 
       {latestPosts.map((post) => (
-        <div key={post._id}> {post.title} </div>
+        <Link target={"_blank"} key={post._id} href={post.url}>
+          {post.title}{" "}
+        </Link>
       ))}
     </main>
   );

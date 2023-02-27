@@ -1,4 +1,15 @@
-import { defineDocumentType, makeSource } from "contentlayer/source-files";
+import {
+  defineDocumentType,
+  makeSource,
+  type ComputedFields,
+} from "contentlayer/source-files";
+
+const computedFields: ComputedFields = {
+  slug: {
+    type: "string",
+    resolve: (doc) => doc._raw.flattenedPath.split("/").slice(1).join("/"),
+  },
+};
 
 const Post = defineDocumentType(() => ({
   name: "Post",
@@ -30,8 +41,9 @@ const Post = defineDocumentType(() => ({
   computedFields: {
     url: {
       type: "string",
-      resolve: (doc) => `/posts/${doc._raw.flattenedPath}`,
+      resolve: (doc) => `/${doc._raw.flattenedPath}`,
     },
+    ...computedFields,
   },
 }));
 
