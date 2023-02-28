@@ -6,6 +6,7 @@ import { allPosts } from "contentlayer/generated";
 // import { MDXContent } from "@/components/mdx-content";
 // import { PostIntro } from "@/components/post-intro";
 import { blogConfig } from "@@/config/blogConfig";
+import { MDXContent } from "@@/mdx-libs/mdx-content";
 
 type PostPageProps = {
   params: {
@@ -66,10 +67,11 @@ export default function PostPage({ params }: PostPageProps) {
 
   return (
     <article>
+     <h1> {post.title}</h1>
       {/*<PostIntro title={post.title} date={post.date} tags={post.tags} />*/}
-      {/*<MDXContent code={post.body.code} />*/}
-      {post.title},,, <br />
-      {post.body.raw}
+      <MDXContent code={post.body.code} />
+
+      {/*{post.body.raw}*/}
       {/*<Comments />*/}
     </article>
   );
