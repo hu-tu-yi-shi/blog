@@ -1,33 +1,24 @@
 'use client'
 
-import Image from 'next/image'
-// import { Inter } from 'next/font/google'
 import styles from './page.module.css'
 import Link from 'next/link'
 import { format, parseISO } from 'date-fns'
 
 import { allPosts } from 'contentlayer/generated'
 import { Button, Card, Tag } from 'antd'
-// const inter = Inter({ subsets: ['latin'] })
+
 import { Space, Typography, Grid } from 'antd'
 import { useRecoilState } from 'recoil'
 import { StateIsLight } from '@@/state/global'
 const { useBreakpoint } = Grid
 
-import {
-    StarOutlined,
-    StarFilled,
-    StarTwoTone,
-    GithubOutlined,
-    MailOutlined,
-} from '@ant-design/icons'
 import { AiOutlineMail, BsGithub, BsRssFill } from 'react-icons/all'
 export default function Home() {
     const [isLight, setIsLight] = useRecoilState(StateIsLight)
     const screens = useBreakpoint()
 
     const latestPosts = allPosts
-        // 按照日期排序的
+        // todo 按照日期排序的
         // .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
         .slice(0, 3)
 
