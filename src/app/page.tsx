@@ -8,6 +8,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
     const latestPosts = allPosts
+        // 按照日期排序的
         // .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
         .slice(0, 3)
 

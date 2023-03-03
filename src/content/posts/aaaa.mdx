@@ -1,0 +1,57 @@
+---
+title: aaaa
+excerpt: aaa aaaa
+datePublished: "2022-12-28"
+dateModified: "2022-12-28"
+tags: ["css", "前端", "css选择器", "css组合选择器"]
+hidden: false
+---
+
+在目前的 css 里，有以下几种组合选择器：
+
+
+## 1. ` `（空格）后代们选择器（所有的后代）
+
+选择所有的后代，数量不限
+直接来看例子：
+
+#### 效果预览
+
+<Sandpack options={{ showLineNumbers: true,showNavigator: true, style: {height:"auto"}, }}  >
+
+  ```css styles.css active
+  /* 选中div里所有的p */
+
+  div p {
+  color: red;
+}
+  /* div和p之间有一个空格，你写多个空格也行 */
+  div p {
+  background: yellow;
+}
+  ```
+
+  ```tsx App.tsx
+  export default function App() {
+  return (
+  <div>
+  <p>p1，父元素是div</p>
+  <span>
+  <p>p2，爷元素是div</p>
+  </span>
+  <span>
+  <h5>
+  <span>
+  <article>
+  <p>p3,虽和div相距很多层，但依然是div的后代</p>
+  </article>
+  </span>
+  </h5>
+  </span>
+  </div>
+  );
+}
+  ```
+
+</Sandpack>
+
