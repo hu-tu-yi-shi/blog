@@ -11,6 +11,7 @@ import { useRecoilState } from 'recoil'
 import { StateIsLight } from '@@/state/global'
 import { Grid_Content, Grid_side } from '@@/config/layout_grid'
 import Link from 'next/link'
+import { VscColorMode } from 'react-icons/all'
 const { useBreakpoint } = Grid
 
 function Header() {
@@ -64,11 +65,12 @@ function Header() {
                                 }
                             >
                                 <a onClick={changeTheme}>
-                                    <DarkTheme24Regular
+                                    <VscColorMode
                                         style={
                                             isLight ? { color: 'black' } : {}
                                         }
                                     />
+
                                 </a>
                             </div>
                         </Col>

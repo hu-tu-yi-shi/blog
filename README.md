@@ -19,7 +19,7 @@ https://www.contentlayer.dev/docs
 
 https://beta.nextjs.org/docs/getting-started
 
-icons : https://react.fluentui.dev/?path=/docs/concepts-developer-icons-icons-catalog--page
+icons :  https://react-icons.github.io/react-icons/search?q=rss
 
 
 # 借鉴

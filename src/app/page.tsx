@@ -4,11 +4,28 @@ import Image from 'next/image'
 // import { Inter } from 'next/font/google'
 import styles from './page.module.css'
 import Link from 'next/link'
-import { allPosts } from 'contentlayer/generated'
-import { Button } from 'antd'
-// const inter = Inter({ subsets: ['latin'] })
+import { format, parseISO } from 'date-fns'
 
+import { allPosts } from 'contentlayer/generated'
+import { Button, Card, Tag } from 'antd'
+// const inter = Inter({ subsets: ['latin'] })
+import { Space, Typography, Grid } from 'antd'
+import { useRecoilState } from 'recoil'
+import { StateIsLight } from '@@/state/global'
+const { useBreakpoint } = Grid
+
+import {
+    StarOutlined,
+    StarFilled,
+    StarTwoTone,
+    GithubOutlined,
+    MailOutlined,
+} from '@ant-design/icons'
+import { AiOutlineMail, BsGithub, BsRssFill } from 'react-icons/all'
 export default function Home() {
+    const [isLight, setIsLight] = useRecoilState(StateIsLight)
+    const screens = useBreakpoint()
+
     const latestPosts = allPosts
         // 按照日期排序的
         // .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
@@ -16,8 +33,71 @@ export default function Home() {
 
     return (
         <main className={styles.main}>
-            <h1>糊涂的博客</h1>
-            <Button>按钮11</Button>
+            <section style={{ textAlign: 'center' }}>
+                <Typography.Title>糊涂的博客</Typography.Title>
+                <Typography.Text>糊涂一时 还是 糊涂一世</Typography.Text>
+                <p></p>
+                <div
+                    className={styles.icons}
+                    style={isLight ? {} : { color: 'red' }}
+                >
+                    <BsGithub />
+                    <AiOutlineMail />
+                    <BsRssFill />
+                </div>
+            </section>
+
+            {latestPosts
+                .filter((item) => !item.hidden)
+                .map((post) => (
+                    <Card
+                        className={styles.articleItem}
+                        key={post.slug}
+                        title={
+                            <div>
+                                <Typography.Title
+                                    level={2}
+                                    style={{ whiteSpace: 'break-spaces' }}
+                                >
+                                    <Link
+                                        as={`/posts/${post.slug}`}
+                                        href={`/posts/[slug]`}
+                                    >
+                                        {post.title}
+                                    </Link>
+                                </Typography.Title>
+
+                                <Space>
+                                    <Typography.Text type="secondary">
+                                        {format(
+                                            parseISO(post.datePublished),
+                                            'yyyy-MM-dd'
+                                        )}
+                                    </Typography.Text>
+
+                                    <span>
+                                        {post?.tags?.map((tag) => {
+                                            return <Tag key={tag}>#{tag}</Tag>
+                                        })}
+                                    </span>
+                                </Space>
+                            </div>
+                        }
+
+                        // extra={<a href="#">More</a>}
+                    >
+                        <Space direction={'vertical'} size={'large'}>
+                            <p>{post.description}</p>
+
+                            <Link
+                                as={`/posts/${post.slug}`}
+                                href={`/posts/[slug]`}
+                            >
+                                <Button>阅读全文 </Button>
+                            </Link>
+                        </Space>
+                    </Card>
+                ))}
             {latestPosts.map((post) => (
                 <Link target={'_blank'} key={post._id} href={post.url}>
                     {post.title}{' '}
