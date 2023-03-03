@@ -16,7 +16,7 @@ const Index = () => {
 
                     <Descriptions.Item label="框架">next.js</Descriptions.Item>
                     <Descriptions.Item label="感兴趣">
-                        web3、区块链
+                        web3、区块链、electron
                     </Descriptions.Item>
                 </Descriptions>
 
