@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { CodeBlock } from '@@/mdx-libs/code-block'
 import { Callout } from '@@/mdx-libs/callout'
-import MySandpack from '@@/mdx-libs/MySandpack'
+// import MySandpack from '@@/mdx-libs/MySandpack'
 // import { Sandpack } from '@codesandbox/sandpack-react'
 
 // import { Callout } from "@/components/callout";
@@ -77,4 +77,4 @@ function pre({ children }: React.HTMLProps<HTMLPreElement>) {
 }
 
 // export const MDXComponents = { a, p, img, pre, TableOfContents, Callout };
-export const MDXComponents = { a, p, img, pre, Callout, Sandpack: MySandpack }
+export const MDXComponents = { a, p, img, pre, Callout }

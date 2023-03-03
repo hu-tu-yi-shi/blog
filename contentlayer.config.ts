@@ -13,6 +13,9 @@ import rehypePrettyCode, {
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
 
+import { remarkCodeHike } from '@code-hike/mdx'
+
+import theme from 'shiki/themes/github-dark.json' assert { type: 'json' } // any theme from shiki
 
 // import { blogConfig } from "@@/config/blogConfig";
 
@@ -73,7 +76,10 @@ export default makeSource({
     contentDirPath: 'src/content',
     documentTypes: [Post],
     mdx: {
-        remarkPlugins: [remarkGfm],
+        remarkPlugins: [
+            remarkGfm,
+            [remarkCodeHike, { theme, lineNumbers: false }],
+        ],
         rehypePlugins: [
             rehypeSlug,
             [
@@ -114,36 +120,36 @@ export default makeSource({
                     ),
                 } satisfies Partial<AutolinkOptions>,
             ],
-            [
-                rehypePrettyCode,
-                {
-                    theme: {
-                        // light: blogConfig.theme?.codeBlockTheme?.light || "github-light",
-                        // dark: blogConfig.theme?.codeBlockTheme?.dark || "github-dark",
-                        light: 'github-light',
-                        dark: 'github-dark',
-                    },
-                    onVisitLine(node) {
-                        // Prevent lines from collapsing in `display: grid` mode, and
-                        // allow empty lines to be copy/pasted
-                        if (node.children.length === 0) {
-                            node.children = [{ type: 'text', value: ' ' }]
-                        }
-                    },
-                    onVisitHighlightedLine(node) {
-                        node.properties.className.push('highlighted')
-                    },
-                    onVisitHighlightedWord(node) {
-                        node.properties.className = ['word']
-                    },
-                    tokensMap: {
-                        fn: 'entity.name',
-                        type: 'entity.name',
-                        prop: 'entity.name',
-                        const: 'variable.other.constant',
-                    },
-                } satisfies Partial<PrettyCodeOptions>,
-            ],
+            // [
+            //     rehypePrettyCode,
+            //     {
+            //         theme: {
+            //             // light: blogConfig.theme?.codeBlockTheme?.light || "github-light",
+            //             // dark: blogConfig.theme?.codeBlockTheme?.dark || "github-dark",
+            //             light: 'github-light',
+            //             dark: 'github-dark',
+            //         },
+            //         onVisitLine(node) {
+            //             // Prevent lines from collapsing in `display: grid` mode, and
+            //             // allow empty lines to be copy/pasted
+            //             if (node.children.length === 0) {
+            //                 node.children = [{ type: 'text', value: ' ' }]
+            //             }
+            //         },
+            //         onVisitHighlightedLine(node) {
+            //             node.properties.className.push('highlighted')
+            //         },
+            //         onVisitHighlightedWord(node) {
+            //             node.properties.className = ['word']
+            //         },
+            //         tokensMap: {
+            //             fn: 'entity.name',
+            //             type: 'entity.name',
+            //             prop: 'entity.name',
+            //             const: 'variable.other.constant',
+            //         },
+            //     } satisfies Partial<PrettyCodeOptions>,
+            // ],
         ],
     },
 })
