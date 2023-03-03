@@ -1,12 +1,12 @@
 import {
-  RecoilRoot,
-  atom,
-  selector,
-  useRecoilState,
-  useRecoilValue,
-} from "recoil";
+    RecoilRoot,
+    atom,
+    selector,
+    useRecoilState,
+    useRecoilValue,
+} from 'recoil'
 
 export const StateIsLight = atom({
-  key: "StateIsLight",
-  default: true,
-});
+    key: 'StateIsLight',
+    default: true,
+})

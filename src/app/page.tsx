@@ -87,7 +87,7 @@ export default function Home() {
                         // extra={<a href="#">More</a>}
                     >
                         <Space direction={'vertical'} size={'large'}>
-                            <p>{post.description}</p>
+                            <p>{post.excerpt}</p>
 
                             <Link
                                 as={`/posts/${post.slug}`}

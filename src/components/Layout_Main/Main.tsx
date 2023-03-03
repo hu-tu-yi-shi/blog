@@ -35,7 +35,6 @@ interface IProps extends IPropsChildren {}
 function Main({ children }: IProps) {
     return (
         <div className={styles.container}>
-
             <RecoilProvider>
                 <StyleProviderLayout>
                     <AntdProvider>
