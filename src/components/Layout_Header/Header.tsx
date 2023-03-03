@@ -1,31 +1,19 @@
 import React from 'react'
 import styles from './Header.module.scss'
 import { top_nav_items } from '@@/config/top_menu'
-import { Row, Col, Menu, Grid, Tag } from 'antd'
+import { Row, Col, Menu, Grid } from 'antd'
 import { useRouter } from 'next/navigation'
+import { DarkTheme24Regular } from '@fluentui/react-icons'
+
 // todo 图标用微软的那个，更全面
-import {
-    HomeOutlined,
-    LoadingOutlined,
-    SettingFilled,
-    SmileOutlined,
-    SyncOutlined,
-} from '@ant-design/icons'
-import {
-    RecoilRoot,
-    atom,
-    selector,
-    useRecoilState,
-    useResetRecoilState,
-    useRecoilValue,
-} from 'recoil'
+
+import { useRecoilState } from 'recoil'
 import { StateIsLight } from '@@/state/global'
 import { Grid_Content, Grid_side } from '@@/config/layout_grid'
 import Link from 'next/link'
 const { useBreakpoint } = Grid
 
-interface IProps {}
-function Header(props: IProps) {
+function Header() {
     const router = useRouter()
     const [isLight, setIsLight] = useRecoilState(StateIsLight)
     const screens = useBreakpoint()
@@ -76,14 +64,11 @@ function Header(props: IProps) {
                                 }
                             >
                                 <a onClick={changeTheme}>
-                                    <i
-                                        className="iconfont"
+                                    <DarkTheme24Regular
                                         style={
                                             isLight ? { color: 'black' } : {}
                                         }
-                                    >
-                                        &#xe65a;
-                                    </i>
+                                    />
                                 </a>
                             </div>
                         </Col>

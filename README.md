@@ -5,7 +5,7 @@
 找个响应式的主题，包含手机端、ipad、pc
 
 
-接入antd
+ 
 
 各种 provider 放入 layout.tsx  ???
 
@@ -18,6 +18,8 @@
 https://www.contentlayer.dev/docs
 
 https://beta.nextjs.org/docs/getting-started
+
+icons : https://react.fluentui.dev/?path=/docs/concepts-developer-icons-icons-catalog--page
 
 
 # 借鉴
