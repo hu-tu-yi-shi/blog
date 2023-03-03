@@ -1,0 +1,25 @@
+.container {
+  //background-color: #e7e2e7;
+  //line-height: 64px; // instead of h3
+  .navsWrapper{
+    display: flex;
+    align-items: center;
+
+
+
+    .navs{
+      background: transparent;
+      border-bottom: none; // 隐藏 menu的底部线
+      font-size: 20px;
+      justify-content: center;
+    }
+  }
+
+
+  .right_buttons{
+    //text-align: right;
+    i{
+      font-size: 26px;
+    }
+  }
+}

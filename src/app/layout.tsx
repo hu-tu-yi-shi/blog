@@ -4,6 +4,29 @@ import { Metadata } from 'next/types'
 
 import { StyleProviderLayout } from '@@/providers/antd-SSR-provider'
 import AntdProvider from '@@/providers/antd-provider'
+import { Row, Col, Menu, Grid, Tag } from 'antd'
+import { Layout as Ant_Layout } from 'antd'
+import { Grid_Content, Grid_side } from '@@/config/layout_grid'
+import RecoilProvider from '@@/providers/recoil-provider'
+import Footer from '@@/components/Layout_Footer/Footer'
+import Header from '@@/components/Layout_Header/Header'
+import styles from './layout.module.scss'
+import Main from '@@/components/Layout_Main/Main'
+
+export default function RootLayout({
+    children,
+}: {
+    children: React.ReactNode
+}) {
+    return (
+        <html lang="zh-cn">
+            <head />
+            <body>
+                <Main>{children}</Main>
+            </body>
+        </html>
+    )
+}
 
 // https://beta.nextjs.org/docs/api-reference/metadata#icons
 // todo 完善icons
@@ -71,21 +94,4 @@ export const metadata: Metadata = {
     //         url: '/favicon-16x16.png',
     //     },
     // ],
-}
-
-export default function RootLayout({
-    children,
-}: {
-    children: React.ReactNode
-}) {
-    return (
-        <html lang="zh-cn">
-            <head />
-            <body>
-                <StyleProviderLayout>
-                    <AntdProvider>{children}</AntdProvider>
-                </StyleProviderLayout>
-            </body>
-        </html>
-    )
 }
