@@ -15,7 +15,7 @@ import remarkGfm from 'remark-gfm'
 
 import { remarkCodeHike } from '@code-hike/mdx'
 
-import theme from 'shiki/themes/github-dark.json' assert { type: 'json' } // any theme from shiki
+// import theme from 'shiki/themes/github-dark.json' assert { type: 'json' } // any theme from shiki
 
 // import { blogConfig } from "@@/config/blogConfig";
 
@@ -78,7 +78,8 @@ export default makeSource({
     mdx: {
         remarkPlugins: [
             remarkGfm,
-            [remarkCodeHike, { theme, lineNumbers: false }],
+            // [remarkCodeHike, { theme, lineNumbers: false }],
+            [remarkCodeHike, ],
         ],
         rehypePlugins: [
             rehypeSlug,

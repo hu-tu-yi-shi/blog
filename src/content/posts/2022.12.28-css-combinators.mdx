@@ -22,7 +22,7 @@ hidden: false
 选择所有的后代，数量不限
 直接来看例子：
 
-```css:styles.css
+```css styles.css
 /* 选中div里所有的p */
 div p {
   color: red;
@@ -33,7 +33,7 @@ div      p {
 }
 ```
 
-```html:index.html
+```html index.html
 <div>
   <p>p1，父元素是div</p>
   <span>
@@ -53,49 +53,13 @@ div      p {
 
 #### 效果预览
 
-<Sandpack options={{ showLineNumbers: true,showNavigator: true, style: {height:"auto"}, }}  >
-
-  ```css styles.css active
-  /* 选中div里所有的p */
-
-  div p {
-  color: red;
-}
-  /* div和p之间有一个空格，你写多个空格也行 */
-  div p {
-  background: yellow;
-}
-  ```
-
-  ```tsx App.tsx
-  export default function App() {
-  return (
-  <div>
-  <p>p1，父元素是div</p>
-  <span>
-  <p>p2，爷元素是div</p>
-  </span>
-  <span>
-  <h5>
-  <span>
-  <article>
-  <p>p3,虽和div相距很多层，但依然是div的后代</p>
-  </article>
-  </span>
-  </h5>
-  </span>
-  </div>
-  );
-}
-  ```
-
-</Sandpack>
+111
 
 ## 2. `>` 儿子们选择器（所有的儿子）
 
 不选孙子，也不选后代，只选儿子，数量不限
 
-```css:styles.css
+```css styles.css
 /* 选中所有父元素是div的p元素 */
 div > p {
   color: red;
@@ -106,7 +70,7 @@ div   >   p {
 }
 ```
 
-```html:index.html
+```html index.html
 <div>
   <p>p1，父元素是div</p>
   <span>
@@ -126,42 +90,7 @@ div   >   p {
 
 ### 效果预览
 
-<Sandpack options={{ showLineNumbers: true,showNavigator: true, style: {height:"auto"}, }}  >
-
-  ```css styles.css active
-  /* 选中所有父元素是div的p元素 */
-  div > p {
-  color: red;
-}
-  /* > 前后 多出的空格不影响渲染结果 */
-  div > p {
-  background: yellow;
-}
-  ```
-
-  ```tsx App.tsx
-  export default function App() {
-  return (
-  <div>
-  <p>p1，父元素是div</p>
-  <span>
-  <p>p2，爷元素是div</p>
-  </span>
-  <span>
-  <h5>
-  <span>
-  <div>
-  <p>p3,仔细看，我的父元素也是div</p>
-  </div>
-  </span>
-  </h5>
-  </span>
-  </div>
-  );
-}
-  ```
-
-</Sandpack>
+1111
 
 ## 3. `~` 弟弟们选择器（所有的弟弟）
 
@@ -179,7 +108,7 @@ p ~ div {
 }
 ```
 
-```html:index.html
+```html index.html
 <div>
   <div>div1，我是div的大儿子</div>
   <p>p1，我上面的哥哥是div1</p>
@@ -197,41 +126,7 @@ p ~ div {
 
 ### 效果预览
 
-<Sandpack options={{ showLineNumbers: true,showNavigator: true, style: {height:"auto"}, }}  >
-
-  ```css styles.css active
-  /* 选中p的所有p弟弟 */
-  p ~ p {
-  color: red;
-}
-
-  /* 选中p的所有div弟弟 */
-  p ~ div {
-  color: blue;
-}
-  ```
-
-  ```tsx App.tsx
-  export default function App() {
-  return (
-  <div>
-  <div>div1，我是div的大儿子</div>
-  <p>p1，我上面的哥哥是div1</p>
-  <p>p2，p1是我哥</p>
-  <p>p3，p1,p2都是我哥</p>
-  <span>
-  <div>div2，我是span的大儿子</div>
-  <p>p4，div2是我哥</p>
-  <div>div3，div2,p4都是我哥</div>
-  <div>div4，div2,p4,div3都是我哥</div>
-  <p>p2，div2,p4,div3,div4都是我哥，注意：p4是我哥</p>
-  </span>
-  </div>
-  );
-}
-  ```
-
-</Sandpack>
+1111
 
 ## 4. `+` 首弟选择器（第一个弟弟）
 
@@ -249,7 +144,7 @@ p + div {
 }
 ```
 
-```html:index.html
+```html index.html
     <div>
         <p>p1</p>
         <p>p2，p1是我哥,我是它第一个弟弟</p>
@@ -265,39 +160,7 @@ p + div {
 
 ### 效果预览
 
-<Sandpack options={{ showLineNumbers: true,showNavigator: true, style: {height:"auto"}, }}  >
-
-  ```css styles.css active
-  /* 选中p的第一个p弟弟 */
-  p + p {
-  color: red;
-}
-
-  /* 选中p的第一个div弟弟 */
-  p + div {
-  color: blue;
-}
-  ```
-
-  ```tsx App.tsx
-  export default function App() {
-  return (
-  <div>
-  <p>p1</p>
-  <p>p2，p1是我哥,我是它第一个弟弟</p>
-  <p>p3，p1是我哥,我是它第二个弟弟；注意：我是p2的第一个弟弟</p>
-  <p>p4，p1,p2是我哥,我是它们的二弟,三弟；注意：我是p3的第一个弟弟</p>
-  <span>
-  <p>p-a1</p>
-  <div>div2，p-a1是我哥,我是它第一个弟弟</div>
-  <div>div3，p-a1是我哥,我是它第二个弟弟</div>
-  </span>
-  </div>
-  );
-}
-  ```
-
-</Sandpack>
+11111
 
 ## 5. `||` 列选择器（目前几乎没什么浏览器支持）
 

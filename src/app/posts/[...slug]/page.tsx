@@ -9,7 +9,6 @@ import { blogConfig } from '@@/config/blogConfig'
 import { MDXContent } from '@@/mdx-libs/mdx-content'
 import '@code-hike/mdx/dist/index.css'
 
-
 type PostPageProps = {
     params: {
         slug: string[]
@@ -25,13 +24,13 @@ export async function generateStaticParams(): Promise<
 }
 
 export function generateMetadata({ params }: PostPageProps): Metadata {
-    const { title, excerpt, url, date } = allPosts.find(
+    const { title, excerpt, url, datePublished } = allPosts.find(
         ({ slug }) => slug === params.slug.join('/')
     ) || {
         title: 'Post Not Found',
         excerpt: null,
         url: '/posts',
-        date: new Date().toISOString(),
+        datePublished: new Date().toISOString(),
     }
 
     const ogImage = {
@@ -48,7 +47,7 @@ export function generateMetadata({ params }: PostPageProps): Metadata {
             url: `${blogConfig.url}${url}`,
             title,
             description,
-            publishedTime: date,
+            publishedTime: datePublished,
             images: [ogImage],
         },
         twitter: {
