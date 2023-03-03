@@ -1,10 +1,12 @@
+'use client'
+
 import Image from 'next/image'
-import { Inter } from 'next/font/google'
+// import { Inter } from 'next/font/google'
 import styles from './page.module.css'
 import Link from 'next/link'
 import { allPosts } from 'contentlayer/generated'
-
-const inter = Inter({ subsets: ['latin'] })
+import { Button } from 'antd'
+// const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
     const latestPosts = allPosts
@@ -15,7 +17,7 @@ export default function Home() {
     return (
         <main className={styles.main}>
             <h1>糊涂的博客</h1>
-
+            <Button>按钮11</Button>
             {latestPosts.map((post) => (
                 <Link target={'_blank'} key={post._id} href={post.url}>
                     {post.title}{' '}

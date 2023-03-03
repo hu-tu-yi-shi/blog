@@ -1,6 +1,9 @@
-import './globals.css'
+// import './globals.css'
 import { blogConfig } from '@@/config/blogConfig'
 import { Metadata } from 'next/types'
+
+import { StyleProviderLayout } from '@@/providers/antd-SSR-provider'
+import AntdProvider from '@@/providers/antd-provider'
 
 // https://beta.nextjs.org/docs/api-reference/metadata#icons
 // todo 完善icons
@@ -77,7 +80,12 @@ export default function RootLayout({
 }) {
     return (
         <html lang="zh-cn">
-            <body>{children}</body>
+            <head />
+            <body>
+                <StyleProviderLayout>
+                    <AntdProvider>{children}</AntdProvider>
+                </StyleProviderLayout>
+            </body>
         </html>
     )
 }
