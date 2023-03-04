@@ -1,6 +1,6 @@
 import { blogConfig } from '@@/config/blogConfig'
 import { Metadata } from 'next/types'
-
+import './global.scss'
 import Main from '@@/components/Layout_Main/Main'
 
 export default function RootLayout({

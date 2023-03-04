@@ -31,9 +31,9 @@ export default function Home() {
         <Typography.Text>糊涂一时 还是 糊涂一世</Typography.Text>
         <p></p>
         <div className={styles.icons} style={isLight ? {} : { color: 'red' }}>
-          <BsGithub />
-          <AiOutlineMail />
-          <BsRssFill />
+          <BsGithub className={'icon'} />
+          <AiOutlineMail className={'icon'} />
+          <BsRssFill className={'icon'} />
         </div>
       </section>
 

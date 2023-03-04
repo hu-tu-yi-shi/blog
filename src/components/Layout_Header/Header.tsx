@@ -1,17 +1,16 @@
 import React from 'react'
 import styles from './Header.module.scss'
 import { top_nav_items } from '@@/config/top_menu'
-import { Row, Col, Menu, Grid } from 'antd'
+import { Col, Grid, Menu, Row } from 'antd'
 import { useRouter } from 'next/navigation'
-import { DarkTheme24Regular } from '@fluentui/react-icons'
 
 // todo 图标用微软的那个，更全面
-
 import { useRecoilState } from 'recoil'
 import { StateIsLight } from '@@/state/global'
 import { Grid_Content, Grid_side } from '@@/config/layout_grid'
 import Link from 'next/link'
 import { VscColorMode } from 'react-icons/all'
+
 const { useBreakpoint } = Grid
 
 function Header() {
@@ -66,9 +65,10 @@ function Header() {
                             >
                                 <a onClick={changeTheme}>
                                     <VscColorMode
-                                        style={
-                                            isLight ? { color: 'black' } : {}
-                                        }
+                                      className={'icon'}
+                                      style={
+                                          isLight ? { color: 'black' } : {}
+                                      }
                                     />
                                 </a>
                             </div>
