@@ -1,19 +1,17 @@
-'use client'
+"use client";
 
-import styles from './page.module.scss'
-import Link from 'next/link'
-import { format, parseISO } from "date-fns";
-import { compareDesc } from "date-fns";
+import styles from "./page.module.scss";
+import Link from "next/link";
+import { compareDesc, format, parseISO } from "date-fns";
 
-import { allPosts } from 'contentlayer/generated'
-import { Button, Card, Tag } from 'antd'
+import { allPosts } from "contentlayer/generated";
+import { Button, Card, Grid, Space, Tag, Typography } from "antd";
+import { useRecoilState } from "recoil";
+import { StateIsLight } from "@@/state/global";
+import { AiOutlineMail, BsGithub, BsRssFill } from "react-icons/all";
 
-import { Space, Typography, Grid } from 'antd'
-import { useRecoilState } from 'recoil'
-import { StateIsLight } from '@@/state/global'
-const { useBreakpoint } = Grid
+const { useBreakpoint } = Grid;
 
-import { AiOutlineMail, BsGithub, BsRssFill } from 'react-icons/all'
 export default function Home() {
     const [isLight, setIsLight] = useRecoilState(StateIsLight)
     const screens = useBreakpoint()
