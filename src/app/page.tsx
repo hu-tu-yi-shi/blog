@@ -20,7 +20,7 @@ export default function Home() {
     //   按照日期排序的
 
     .sort((a, b) =>
-      compareDesc(new Date(a.datePublished), new Date(b.datePublished)),
+      compareDesc(new Date(a.datePublished), new Date(b.datePublished))
     )
     .slice(0, 3)
 
