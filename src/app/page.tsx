@@ -30,7 +30,10 @@ export default function Home() {
         <Typography.Title>糊涂的博客</Typography.Title>
         <Typography.Text>糊涂一时 还是 糊涂一世</Typography.Text>
         <p></p>
-        <div className={styles.icons} style={isLight ? {} : { color: "red" }}>
+        <div
+          className={styles.icons}
+          style={isLight ? {} : { color: "red" }}
+        >
           <BsGithub />
           <AiOutlineMail />
           <BsRssFill />
@@ -49,21 +52,27 @@ export default function Home() {
                   level={2}
                   style={{ whiteSpace: "break-spaces" }}
                 >
-                  <Link as={`/posts/${post.slug}`} href={`/posts/[slug]`}>
+                  <Link
+                    as={`/posts/${post.slug}`}
+                    href={`/posts/[slug]`}
+                  >
                     {post.title}
                   </Link>
                 </Typography.Title>
 
                 <Space>
                   <Typography.Text type="secondary">
-                    {format(parseISO(post.datePublished), "yyyy-MM-dd")}
+                    {format(
+                      parseISO(post.datePublished),
+                      "yyyy-MM-dd"
+                    )}
                   </Typography.Text>
 
                   <span>
-                    {post?.tags?.map((tag) => {
-                      return <Tag key={tag}>#{tag}</Tag>;
-                    })}
-                  </span>
+                                        {post?.tags?.map((tag) => {
+                                          return <Tag key={tag}>#{tag}</Tag>;
+                                        })}
+                                    </span>
                 </Space>
               </div>
             }
@@ -73,7 +82,10 @@ export default function Home() {
             <Space direction={"vertical"} size={"large"}>
               <p>{post.excerpt}</p>
 
-              <Link as={`/posts/${post.slug}`} href={`/posts/[slug]`}>
+              <Link
+                as={`/posts/${post.slug}`}
+                href={`/posts/[slug]`}
+              >
                 <Button>阅读全文 </Button>
               </Link>
             </Space>

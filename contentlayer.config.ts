@@ -1,19 +1,10 @@
-import {
-    defineDocumentType,
-    makeSource,
-    type ComputedFields,
-} from 'contentlayer/source-files'
-import { s } from 'hastscript'
-import rehypeAutolinkHeadings, {
-    type Options as AutolinkOptions,
-} from 'rehype-autolink-headings'
-import rehypePrettyCode, {
-    type Options as PrettyCodeOptions,
-} from 'rehype-pretty-code'
-import rehypeSlug from 'rehype-slug'
-import remarkGfm from 'remark-gfm'
+import { type ComputedFields, defineDocumentType, makeSource } from "contentlayer/source-files";
+import { s } from "hastscript";
+import rehypeAutolinkHeadings, { type Options as AutolinkOptions } from "rehype-autolink-headings";
+import rehypeSlug from "rehype-slug";
+import remarkGfm from "remark-gfm";
 
-import { remarkCodeHike } from '@code-hike/mdx'
+import { remarkCodeHike } from "@code-hike/mdx";
 
 // import theme from 'shiki/themes/github-dark.json' assert { type: 'json' } // any theme from shiki
 
@@ -79,7 +70,7 @@ export default makeSource({
         remarkPlugins: [
             remarkGfm,
             // [remarkCodeHike, { theme, lineNumbers: false }],
-            [remarkCodeHike, ],
+            [remarkCodeHike]
         ],
         rehypePlugins: [
             rehypeSlug,
