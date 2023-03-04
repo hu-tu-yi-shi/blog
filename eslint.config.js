@@ -1,4 +1,4 @@
-// 目前webstorm 不支持检测  eslint.config.js ,等以后再弄吧
+// todo 目前webstorm 不支持检测  eslint.config.js ,等以后再弄吧
 
 // 到时候把 .eslintrc.js 重命名为 eslint.config.js
 
