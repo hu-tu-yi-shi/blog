@@ -1,5 +1,7 @@
 // 目前webstorm 不支持检测  eslint.config.js ,等以后再弄吧
 
+// 到时候把 .eslintrc.js 重命名为 eslint.config.js
+
 
 // https://www.jetbrains.com/help/webstorm/eslint.html#ws_js_eslint_activate  支持的配置文件名
 

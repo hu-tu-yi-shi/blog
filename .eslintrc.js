@@ -30,9 +30,9 @@ module.exports = {
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:react/jsx-runtime",
-    "plugin:react-hooks/recommended",
-    "prettier",
-    "plugin:prettier/recommended"
+    "plugin:react-hooks/recommended"
+    // "prettier", 为了让 prettier.config.js 生效，这里不能使用
+    // "plugin:prettier/recommended" 为了让 prettier.config.js 生效，这里不能使用
   ],
   /*
    * "off" 或 0    ==>  关闭规则
