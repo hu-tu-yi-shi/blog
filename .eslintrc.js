@@ -26,13 +26,13 @@ module.exports = {
     plugins: ["react", "@typescript-eslint", "react-hooks", "prettier"],
     /* 继承某些已有的规则 */
     extends: [
-        "eslint:recommended",
-        "plugin:react/recommended",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:react/jsx-runtime",
-        "plugin:react-hooks/recommended",
-        "prettier", // 为了让 prettier.config.js 生效，这里不能使用
-        "plugin:prettier/recommended" //为了让 prettier.config.js 生效，这里不能使用
+        'eslint:recommended',
+        'plugin:react/recommended',
+        'plugin:@typescript-eslint/recommended',
+        'plugin:react/jsx-runtime',
+        'plugin:react-hooks/recommended',
+        // "prettier", // 为了让 prettier.config.js 生效，这里不能使用
+        // "plugin:prettier/recommended" //为了让 prettier.config.js 生效，这里不能使用
     ],
     /*
      * "off" 或 0    ==>  关闭规则
