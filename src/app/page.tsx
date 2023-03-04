@@ -1,6 +1,6 @@
 'use client'
 
-import styles from './page.module.css'
+import styles from './page.module.scss'
 import Link from 'next/link'
 import { format, parseISO } from 'date-fns'
 
@@ -89,11 +89,7 @@ export default function Home() {
                         </Space>
                     </Card>
                 ))}
-            {latestPosts.map((post) => (
-                <Link target={'_blank'} key={post._id} href={post.url}>
-                    {post.title}{' '}
-                </Link>
-            ))}
+
         </main>
     )
 }
