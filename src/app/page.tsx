@@ -2,7 +2,8 @@
 
 import styles from './page.module.scss'
 import Link from 'next/link'
-import { format, parseISO } from 'date-fns'
+import { format, parseISO } from "date-fns";
+import { compareDesc } from "date-fns";
 
 import { allPosts } from 'contentlayer/generated'
 import { Button, Card, Tag } from 'antd'
@@ -18,8 +19,10 @@ export default function Home() {
     const screens = useBreakpoint()
 
     const latestPosts = allPosts
-        // todo 按照日期排序的
-        // .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
+      //   按照日期排序的
+      .sort((a, b) =>
+        compareDesc(new Date(a.datePublished), new Date(b.datePublished))
+      )
         .slice(0, 3)
 
     return (
@@ -89,7 +92,6 @@ export default function Home() {
                         </Space>
                     </Card>
                 ))}
-
         </main>
     )
 }
